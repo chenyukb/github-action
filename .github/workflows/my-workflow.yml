@@ -35,4 +35,4 @@ jobs:
     - name: Echo Var And Secret
       run: |
         echo ${{vars.MY_VAR}}
-        echo ${{secrets.MY_SECRET}} | cut -c 1-3
+        echo ${{secrets.MY_SECRET}} | cut -c 1-12
