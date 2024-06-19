@@ -32,3 +32,7 @@ jobs:
       
     - name: Run the Java application  
       run: java -jar target/javaMavenDemo-1.0.jar
+    - name: Echo Var And Secret
+      run: |
+        echo ${vars.MY_VAR}
+        echo ${secrets.MY_SECRET}
