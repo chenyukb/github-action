@@ -7,7 +7,7 @@
 # documentation.
 
 
-name: Java CI with Maven main branch
+name: another yml workflow
 on:
   workflow_dispatch:
   push:
