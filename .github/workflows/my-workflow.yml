@@ -37,7 +37,6 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     if: ${{1==1}}
-    needs: ['build']
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 8
@@ -54,3 +53,63 @@ jobs:
     - name: Echo Var And Secret
       run: |
         echo job1
+  job2:
+    runs-on: ubuntu-latest
+    if: ${{1==1}}
+    needs: ['job1']
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 8
+      uses: actions/setup-java@v3
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+      
+    - name: Run the Java application  
+      run: java -jar target/javaMavenDemo-1.0.jar
+    - name: Echo Var And Secret
+      run: |
+        echo job2
+  job3:
+    runs-on: ubuntu-latest
+    if: ${{1==1}}
+    needs: ['job1']
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 8
+      uses: actions/setup-java@v3
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+      
+    - name: Run the Java application  
+      run: java -jar target/javaMavenDemo-1.0.jar
+    - name: Echo Var And Secret
+      run: |
+        echo job3
+  job4:
+    runs-on: ubuntu-latest
+    if: ${{1==1}}
+    needs: ['job1', 'job2', 'job3']
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 8
+      uses: actions/setup-java@v3
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+      
+    - name: Run the Java application  
+      run: java -jar target/javaMavenDemo-1.0.jar
+    - name: Echo Var And Secret
+      run: |
+        echo job4
