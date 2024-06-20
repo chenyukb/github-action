@@ -76,7 +76,7 @@ jobs:
   job3:
     runs-on: ubuntu-latest
     if: ${{1==1}}
-    needs: ['job1']
+    needs: ['job1', 'job2']
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 8
