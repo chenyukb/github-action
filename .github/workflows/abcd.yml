@@ -29,6 +29,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      uses: chenyukb/my-hello-world-action
+      uses: chenyukb/my-hello-world-action@v1.1
       with:
         who-to-greet: 'Mona the Octocat'
