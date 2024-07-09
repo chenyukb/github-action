@@ -10,16 +10,22 @@
 name: abcd yml workflow
 on:
   workflow_dispatch:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+  # push:
+  #   branches: [ "master" ]
+  # pull_request:
+  #   branches: [ "master" ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    steps:
+    - name: test
+      uses: chenyukb/my-hello-world-action@v1.3
+      with:
+        who-to-greet: 'Mona the Octocat'
+  abcd:
+    runs-on: ubuntu-latest
+    needs: build
     steps:
     - name: test
       uses: chenyukb/my-hello-world-action@v1.3
