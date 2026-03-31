@@ -11,9 +11,9 @@ name: dev branch yml
 on:
   workflow_dispatch:
   push:
-    branches: [ "master" ]
+    branches: [ "dev", "master" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "dev", "master" ]
 
 jobs:
   build:
