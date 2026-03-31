@@ -11,7 +11,7 @@ name: master yml workflow
 on:
   workflow_dispatch:
   push:
-    branches: [ "dev" ]
+    branches: [ "dev" , "master"]
   pull_request:
     branches: [ "dev" ]
 
