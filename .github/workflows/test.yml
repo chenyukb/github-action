@@ -12,8 +12,6 @@ on:
   workflow_dispatch:
   push:
     branches: [ "xyz"]
-  pull_request:
-    branches: [ "dev"]
 
 jobs:
   build:
